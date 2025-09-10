@@ -13,20 +13,15 @@ describe('test suite: renderOrderSummary', () => {
   beforeEach(() => {
     spyOn(localStorage, 'setItem')
 
-    spyOn(localStorage, 'getItem').and.callFake(
-      () => {
-        return JSON.stringify([{
-          productId: productId1,
-          quantity: 2,
-          deliveryOptionId: '1',
-        },
-        {
-          productId: productId2,
-          quantity: 1,
-          deliveryOptionId: '2',
-        }]);
-      });
-    cart.loadFromStorage();
+    cart.cartItems = [{
+      productId: productId1,
+      quantity: 2,
+      deliveryOptionId: '1'
+    }, {
+      productId: productId2,
+      quantity: 1,
+      deliveryOptionId: '2'
+    }];
 
     document.querySelector('.js-test-container').innerHTML = `
     <div class="order-summary"></div>
