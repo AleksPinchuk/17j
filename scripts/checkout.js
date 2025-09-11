@@ -6,9 +6,20 @@ import { loadProducts } from '../data/products.js';
 // import '../data/car.js';
 // import '../data/backend-practice.js'
 
-loadProducts(() => {
+new Promise((resolse) => {
+  loadProducts(() => {
+    resolse()
+  })
+}).then(() => {
   renderOrderSummary();
   renderPaymentSummary();
   renderCheckoutHeader();
 })
 
+/*
+loadProducts(() => {
+  renderOrderSummary();
+  renderPaymentSummary();
+  renderCheckoutHeader();
+})
+*/
