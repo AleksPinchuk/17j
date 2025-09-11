@@ -1,7 +1,10 @@
 // import { cart, addToCart, calculateCartQuantity } from "../data/cart.js";
 import { cart } from "../data/cart-class.js";
-import { products } from "../data/products.js";
+import { products, loadProducts } from "../data/products.js";
 
+loadProducts(renderProductGrid)
+
+function renderProductGrid() {
 let productsHTML = '';
 
 products.forEach((product) => {
@@ -72,4 +75,4 @@ document.querySelectorAll('.add-to-cart-button').forEach((button) => button.addE
   cart.addToCart(productId);
   updateCartQuantity()
 }))
-
+}
