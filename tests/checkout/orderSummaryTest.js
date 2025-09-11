@@ -1,6 +1,7 @@
 import { renderOrderSummary } from "../../scripts/checkout/orderSummary.js";
 // import { loadFromStorage, cart } from "../../data/cart.js";
 import { cart } from "../../data/cart-class.js";
+import { loadProducts } from "../../data/products.js";
 
 describe('test suite: renderOrderSummary', () => {
   const productId1 = 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6';
@@ -9,6 +10,12 @@ describe('test suite: renderOrderSummary', () => {
   const productName2 = 'Intermediate Size Basketball';
   const productPrice1 = '$10.90'
   const productPrice2 = '$20.95'
+
+  beforeAll((done) => {
+    loadProducts(() => {
+      done()
+    });
+  })
 
   beforeEach(() => {
     spyOn(localStorage, 'setItem')
